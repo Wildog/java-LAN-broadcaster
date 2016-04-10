@@ -37,7 +37,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/*这个类是服务器端的UI*/
 public class ServerUI extends JFrame {
     public static void main(String[] args) {
         ServerUI serverUI = new ServerUI();
@@ -45,15 +44,15 @@ public class ServerUI extends JFrame {
 
     private static final long serialVersionUID = -1677342784183836763L;
 
-    public JButton btSend;//发送信息按钮
-    public JButton btSendSelected;//发送所选信息按钮
-    public JButton btRefresh;//刷新在线客户端列表
-    public JTextField tfSend;//需要发送的文本信息
-    public JTextArea taShow;//信息展示
-    public Server server;//用来监听客户端连接
-    static Map<InetAddress, Socket> clients;//保存连接到服务器的客户端
-    static List<SocketWrapper> selectedClients;//保存选择要发送的客户端 
-    public JList<SocketWrapper> clientList;
+    public JButton btSend;
+    public JButton btSendSelected;
+    public JButton btRefresh;
+    public JTextField tfSend;
+    public JTextArea taShow;
+    public Server server;
+    static Map<InetAddress, Socket> clients;
+    static List<SocketWrapper> selectedClients;
+    public JList<SocketWrapper> clientList; 
     public DefaultListModel<SocketWrapper> clientListModel;
     public ListSelectionModel clientListSelectionModel;
     public SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -168,12 +167,7 @@ public class ServerUI extends JFrame {
 
         JScrollPane clientScrollPane = new JScrollPane(clientList);
 
-        /* JLabel lbMsg = new JLabel("消息列表:");
-        JLabel lbList = new JLabel("在线客户端列表:"); */
-        
-        /* area.add(lbMsg); */
         area.add(sp);
-        /* area.add(lbList); */
         area.add(clientScrollPane);
 
         this.add(area, BorderLayout.CENTER);

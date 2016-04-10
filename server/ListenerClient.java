@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-/*这个类是服务器端的等待客户端发送信息*/
+
 public class ListenerClient extends Thread {
     BufferedReader reader;
     PrintWriter writer;
@@ -14,7 +14,7 @@ public class ListenerClient extends Thread {
         this.client=client;
         this.start();
     }
-    //为每一个客户端创建线程等待接收信息，然后把信息广播出去
+
     public void run() {
         String msg = "";
         while (true) {
@@ -35,7 +35,7 @@ public class ListenerClient extends Thread {
             }
         }
     }
-    //把信息广播到所有用户
+
     public synchronized void sendMsg(String msg) {
         try {
             for (Socket client : ui.clients.values()) {
@@ -47,8 +47,6 @@ public class ListenerClient extends Thread {
             println(e.toString());
         }
     }
-
-    
 
     public void println(String s) {
         if (s != null) {

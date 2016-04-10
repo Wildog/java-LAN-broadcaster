@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-/*这个类是服务器端的等待客户端连接*/
+
 public class Server extends Thread {
     ServerUI ui;
     ServerSocket ss;
@@ -114,11 +114,9 @@ public class Server extends Thread {
             }
             for (Socket client : ui.clients.values()) {
                 client.close();
-                // System.out.println(client);
                 // System.out.println("client closed");
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
